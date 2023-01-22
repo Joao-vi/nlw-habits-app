@@ -2,7 +2,13 @@
 module.exports = {
   content: ['./src/**/*.tsx', './index.html'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        brand: {
+          bg: '#09090A',
+        },
+      },
+    },
   },
   plugins: [],
 };
