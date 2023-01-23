@@ -47,4 +47,17 @@
   .table-dates-main {
     @apply max-w-full pb-4 grid grid-flow-row grid-cols-7 grid-rows-none sm:grid-rows-7 sm:grid-cols-none sm:grid-flow-col gap-2;
   }
+
+  .checkbox > input:checked + div {
+    @apply bg-green-500;
+  }
+  .checkbox > input:checked + div > svg {
+    @apply opacity-100 scale-100 translate-y-0;
+  }
+}
+
+@layer utilities {
+  .ring-effect {
+    @apply focus:outline-none ring ring-transparent ring-offset-zinc-900 focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 transition-all;
+  }
 }
