@@ -9,13 +9,11 @@
   }
 
   body {
-    @apply bg-brand-bg text-white;
+    @apply min-h-screen bg-brand-bg text-white flex items-center justify-center;
   }
 
-  html,
-  #root,
-  body {
-    @apply h-full min-h-screen;
+  #root {
+    width: 100%;
   }
 
   /* width */
