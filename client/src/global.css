@@ -41,11 +41,11 @@
 
 @layer components {
   .table-dates-header {
-    @apply grid grid-cols-7 grid-rows-none sm:grid-rows-7 sm:grid-cols-none text-center gap-2 pb-4;
+    @apply grid grid-cols-7 grid-rows-none sm:grid-rows-7 sm:grid-cols-none text-center gap-2 p-2;
   }
 
   .table-dates-main {
-    @apply max-w-full pb-4 grid grid-flow-row grid-cols-7 grid-rows-none sm:grid-rows-7 sm:grid-cols-none sm:grid-flow-col gap-2;
+    @apply max-w-full p-2 grid grid-flow-row grid-cols-7 grid-rows-none sm:grid-rows-7 sm:grid-cols-none sm:grid-flow-col gap-2;
   }
 
   .checkbox > input:checked + div {

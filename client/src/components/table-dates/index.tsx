@@ -31,12 +31,9 @@ export const TableDates = () => {
         ))}
       </div>
 
-      <div style={{ overflow: 'overlay' }} className="table-dates-main ">
+      <div style={{ overflow: 'overlay' }} className="table-dates-main">
         {allDates.map((date) => (
-          <DateBox
-            key={date.toString()}
-            className={`${today.isBefore(date) ? 'opacity-50 cursor-not-allowed' : ''}`}
-          />
+          <DateBox key={date.toString()} disabled={today.isBefore(date)} />
         ))}
       </div>
     </main>

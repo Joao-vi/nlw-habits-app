@@ -1,3 +1,4 @@
+import { HabitPopover } from './components/habit-popover';
 import { Header } from './components/header';
 import { TableDates } from './components/table-dates';
 
