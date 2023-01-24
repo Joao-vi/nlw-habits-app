@@ -1,25 +1,26 @@
 import { twMerge } from 'tailwind-merge';
+
+import { HabitPopover, HabitPopoverContainer } from './habit-popover';
 import { cva, VariantProps } from 'class-variance-authority';
-import { HabitPopover, HabitPopoverContainer } from '../habit-popover';
-
-type Variants = VariantProps<typeof styles>;
-
 interface IDateBox extends Variants {
   className?: string;
+  date: string;
 }
 
-export const DateBox = ({ className, ...variants }: IDateBox) => {
+export const DateBox = ({ className, date, ...variants }: IDateBox) => {
   return (
     <HabitPopoverContainer
       isDisabled={variants.disabled || false || variants.type === 'header'}
-      content={<HabitPopover />}
+      content={<HabitPopover date={date} />}
     >
       <div className={twMerge(styles(variants), className)} />
     </HabitPopoverContainer>
   );
 };
 
-const styles = cva('aspect-square w-10 h-10 rounded-lg border-2', {
+export type Variants = VariantProps<typeof styles>;
+
+export const styles = cva('aspect-square w-10 h-10 rounded-lg border-2', {
   variants: {
     status: {
       '0-15': 'border-zinc-800 bg-zinc-900',

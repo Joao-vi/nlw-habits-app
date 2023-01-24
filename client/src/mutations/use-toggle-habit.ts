@@ -1,12 +1,12 @@
 import { useMutation } from '@tanstack/react-query';
-
 import { habitService } from '../data/habit-service';
 import { queryClient } from '../lib/react-query';
 
-export const useCreateHabit = () =>
+export const useToggleHabit = () =>
   useMutation({
-    mutationFn: habitService.createHabit,
-    onSuccess: () => {
+    mutationFn: (props: { id: string; date: string }) => habitService.toggleHabit(props.id),
+    onSuccess: (_, { date }) => {
       queryClient.invalidateQueries(['SUMMARY']);
+      queryClient.invalidateQueries(['DATE-HABITS', date]);
     },
   });

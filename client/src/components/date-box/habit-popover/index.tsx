@@ -1,9 +1,12 @@
 import { Popover } from '@headlessui/react';
 import { ReactNode, useState } from 'react';
+import { CircleNotch } from 'phosphor-react';
 import { usePopper } from 'react-popper';
 
 import { HabitList } from './habit-list';
+import { TSummary } from '../../../data/habit-service/types';
 import { Header } from './header';
+import { useDateHabits } from '../../../queries/use-date-habits';
 
 interface IHabitPopoverContainer {
   children: ReactNode;
@@ -11,12 +14,21 @@ interface IHabitPopoverContainer {
   isDisabled?: boolean;
 }
 
-export const HabitPopover = () => {
+export const HabitPopover = (props: { date: string }) => {
+  const { data, isLoading, isFetching } = useDateHabits(props.date);
+
   return (
     <div className="z-50 flex flex-col gap-4 p-6 bg-zinc-900 rounded-2xl">
-      <Header />
+      <Header
+        date={props.date}
+        amount={data?.possibleHabits?.length || 0}
+        completed={data?.completedHabits?.length || 0}
+        isLoading={isLoading}
+      />
 
-      <HabitList />
+      <HabitList isLoading={isLoading} date={props.date} {...data} />
+
+      {isFetching && <CircleNotch className="absolute top-4 right-4 animate-spin" size={20} />}
     </div>
   );
 };
