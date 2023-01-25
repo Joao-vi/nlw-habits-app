@@ -28,7 +28,9 @@ export const HabitPopover = (props: { date: string }) => {
 
       <HabitList isLoading={isLoading} date={props.date} {...data} />
 
-      {isFetching && <CircleNotch className="absolute top-4 right-4 animate-spin" size={20} />}
+      {!isLoading && isFetching && (
+        <CircleNotch className="absolute top-4 right-4 animate-spin" size={20} />
+      )}
     </div>
   );
 };

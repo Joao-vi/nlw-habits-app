@@ -11,7 +11,7 @@ export const CreateHabitForm = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { mutate, isLoading } = useCreateHabit();
 
-  const createNewHabit = (e: FormEvent<HTMLFormElement>) => {
+  const createNewHabit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.target as HTMLFormElement);
@@ -24,7 +24,7 @@ export const CreateHabitForm = () => {
       return;
     }
 
-    mutate({ title, weekDays });
+    mutate({ title, weekDays }, { onSuccess: onClose });
   };
 
   const onClose = () => {

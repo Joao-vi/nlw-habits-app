@@ -14,8 +14,12 @@ export const Header = (props: IHeader) => {
 
   const renderAmountHabits = () => {
     return (
-      <span className="border-2 border-zinc-700 px-2 rounded-lg">
-        {props.isLoading ? <CircleNotch className="m-1" /> : `${props.completed} / ${props.amount}`}
+      <span className="border-2 border-zinc-700 px-2 rounded-lg min-w-[3.5rem] text-center">
+        {props.isLoading ? (
+          <CircleNotch className="m-1 animate-spin" />
+        ) : (
+          `${props.completed} / ${props.amount}`
+        )}
       </span>
     );
   };
