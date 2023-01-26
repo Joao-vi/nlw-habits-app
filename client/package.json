@@ -15,9 +15,11 @@
     "@tanstack/react-query-devtools": "^4.23.0",
     "axios": "^1.2.3",
     "class-variance-authority": "^0.4.0",
+    "dayjs": "^1.11.7",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
     "react-popper": "^2.3.0",
     "tailwind-merge": "^1.8.1"
   },
